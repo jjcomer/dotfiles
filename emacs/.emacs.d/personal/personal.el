@@ -31,14 +31,14 @@
 
 (prelude-require-packages '(paredit
                             solarized-theme
-                            clj-refactor))
+                            clj-refactor
+                            key-chord))
 
 (require 'paredit)
 (require 'clj-refactor)
+(require 'key-chord)
 
-(defun set-auto-indent ()
-  "Indent when you press Return."
-  (local-set-key (kbd "RET") 'newline-and-indent))
+(electric-indent-mode 1)
 
 (eval-after-load 'clojure-mode
   '(progn
@@ -56,7 +56,9 @@
      (add-hook 'cider-repl-mode-hook 'rainbow-delimiters-mode)
      (add-hook 'cider-repl-mode-hook 'subword-mode)))
 
-;; Adjust the annoying bell
+(key-chord-define-global "xx" 'smex)
+
+`';; Adjust the annoying bell
 ;; Try just a visible bell
 ;;(setq visible-bell 1)
 ;; If that drives you crazy turn it all off
@@ -72,7 +74,7 @@
 (scroll-bar-mode -1)
 
 ;;Turn off guru mode
-;(setq guru-warn-only t)
+                                        ;(setq guru-warn-only t)
 (setq prelude-guru nil)
 
 ;;Make paredit look cool
@@ -93,7 +95,9 @@
   (DELETE 2)
   (HEAD 2)
   (ANY 2)
-  (context 2))
+  (context 2)
+  (fact 2)
+  (facts 2))
 
 (fset 'make-tuple
       "\C-c\C-mcc\C-c\C-mcc\C-ftuple \C-b\C-b\C-b\C-b\C-b\C-b\C-b")
