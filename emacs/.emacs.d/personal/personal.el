@@ -29,32 +29,19 @@
 ;;
 ;;; Code:
 
-(prelude-require-packages '(paredit
-                            solarized-theme
+(prelude-require-packages '(solarized-theme
                             clj-refactor
                             key-chord))
 
-(require 'paredit)
 (require 'clj-refactor)
 (require 'key-chord)
-
-(electric-indent-mode 1)
 
 (eval-after-load 'clojure-mode
   '(progn
      (add-hook 'clojure-mode-hook
                (lambda ()
-                 (smartparens-mode -1)
                  (clj-refactor-mode 1)
-                 (cljr-add-keybindings-with-prefix "C-c C-g")
-                 (paredit-mode)
-                 (set-auto-indent)) t)))
-
-(eval-after-load 'cider
-  '(progn
-     (add-hook 'cider-mode-hook 'paredit-mode)
-     (add-hook 'cider-repl-mode-hook 'rainbow-delimiters-mode)
-     (add-hook 'cider-repl-mode-hook 'subword-mode)))
+                 (cljr-add-keybindings-with-prefix "C-c C-g")) t)))
 
 (key-chord-define-global "xx" 'smex)
 
@@ -74,12 +61,8 @@
 (scroll-bar-mode -1)
 
 ;;Turn off guru mode
-                                        ;(setq guru-warn-only t)
+;;(setq guru-warn-only t)
 (setq prelude-guru nil)
-
-;;Make paredit look cool
-(eval-after-load "paredit"
-  '(diminish 'paredit-mode " π"))
 
 (disable-theme 'zenburn)
 
