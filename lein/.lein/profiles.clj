@@ -1,12 +1,10 @@
 {:user {:plugins [[lein-difftest "2.0.0"]
                   [lein-pprint "1.1.1"]
                   [lein-kibit "0.0.8"]
-                  [lein-ancient "0.5.5"]
+                  [lein-ancient "0.6.0-SNAPSHOT"]
                   [jonase/eastwood "0.1.4"]
-                  [lein-bin "0.3.4"]
-                  [lein-licenses "0.1.1"]
-                  [lein-environ "0.5.0"]
-                  [refactor-nrepl "0.1.0"]
+                  [lein-environ "1.0.0"]
+                  [refactor-nrepl "0.2.0-SNAPSHOT"]
                   [cider/cider-nrepl "0.8.0-SNAPSHOT"]]
         :dependencies [[clj-stacktrace "0.2.8" :scope "runtime"]]
         :injections [(let [orig (ns-resolve (doto 'clojure.stacktrace require)
@@ -21,16 +19,16 @@
                                              ;;:cx-topic "raw_events"
                                              ;;:cx-log-level "prod"
                                              }}]
-                   :ap [:cxengage {:env {:cx-cassandra "10.0.2.176,10.0.3.46,10.0.4.254"
-                                         :cx-port "8088"}}]
+                   :api [:cxengage {:env {:cx-port "8082"}}]
                    :auth [:cxengage {:env {:cx-port "8081"}}]
-                   :platform [:cxengage {:env {:cx-port "8088"}}]
+                   :platform [:cxengage {:env {:cx-port "8088"
+                                               :cx-multiverse "dev;localhost:2181"}}]
                    :augment [:cxengage {:env {}}]
                    :chatter [:cxengage {:env {:cx-events "http://localhost:8083"}}]
                    :rest [:cxengage {:env {:cx-port "8083"}}]
                    :generic [:cxengage {:env {:cx-port "8083"}}]
                    :echo [:cxengage {:env {;;:cx-producer-topics "raw_events"
-                                           :cx-log-level "prod"}}]}
+                                           :cx-log-level "dev"}}]}
         :aliases {"ccheck" ^{:doc "Clean and check the source"}
                   ["do" ["clean"] ["check"]]
                   "cinstall" ^{:doc "Clean and install locally"}
