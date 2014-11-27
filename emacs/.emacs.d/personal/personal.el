@@ -30,18 +30,30 @@
 ;;; Code:
 
 (prelude-require-packages '(solarized-theme
+                            paredit
                             clj-refactor
                             key-chord))
 
 (require 'clj-refactor)
 (require 'key-chord)
+(require 'paredit)
+
+(add-to-list 'auto-mode-alist '("README\\.md\\'" . gfm-mode))
 
 (eval-after-load 'clojure-mode
   '(progn
      (add-hook 'clojure-mode-hook
                (lambda ()
+                 (smartparens-mode -1)
+                 (paredit-mode 1)
                  (clj-refactor-mode 1)
                  (cljr-add-keybindings-with-prefix "C-c C-g")) t)))
+
+(eval-after-load 'cider
+  '(progn
+     (add-hook 'cider-mode-hook 'paredit-mode)
+     (add-hook 'cider-repl-mode-hook 'rainbow-delimiters-mode)
+     (add-hook 'cider-repl-mode-hook 'subword-mode)))
 
 (key-chord-define-global "xx" 'smex)
 
@@ -59,6 +71,10 @@
 
 ;;Turn off scrollbars
 (scroll-bar-mode -1)
+
+;;Make paredit look cool
+(eval-after-load "paredit"
+  '(diminish 'paredit-mode " π"))
 
 ;;Turn off guru mode
 ;;(setq guru-warn-only t)

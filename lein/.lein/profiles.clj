@@ -5,7 +5,8 @@
                   [jonase/eastwood "0.1.4"]
                   [lein-environ "1.0.0"]
                   [refactor-nrepl "0.2.0-SNAPSHOT"]
-                  [cider/cider-nrepl "0.8.0-SNAPSHOT"]]
+                  [cider/cider-nrepl "0.8.2-SNAPSHOT"]
+                  [lein-exec "0.3.4"]]
         :dependencies [[clj-stacktrace "0.2.8" :scope "runtime"]]
         :injections [(let [orig (ns-resolve (doto 'clojure.stacktrace require)
                                             'print-cause-trace)
