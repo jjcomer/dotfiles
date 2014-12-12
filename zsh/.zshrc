@@ -13,6 +13,9 @@ ZSH_THEME="sunaku"
 
 alias drf="docker rm -f \$(docker ps -aq)"
 alias ag="ack-grep --clojure"
+alias e="emacs"
+alias ed="emacs --daemon"
+alias ec="emacsclient -c &"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -55,7 +58,7 @@ export ZSH_TMUX_AUTOCONNECT=true
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(emacs git lein docker tmux)
+plugins=(git lein docker tmux)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -73,6 +76,8 @@ if [[ -n $SSH_CONNECTION ]]; then
 else
   export EDITOR='emacs'
 fi
+
+export TERM=xterm-256color
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"

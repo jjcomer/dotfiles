@@ -25,8 +25,10 @@
                                                :cx-multiverse "dev;localhost:2181"}}]
                    :augment [:cxengage {:env {}}]
                    :chatter [:cxengage {:env {:cx-events "http://localhost:8083"}}]
-                   :rest [:cxengage {:env {:cx-port "8083"}}]
-                   :generic [:cxengage {:env {:cx-port "8083"}}]
+                   :rest [:cxengage {:env {:cx-port "8083"
+                                           :cx-stream-port "8883"}}]
+                   :generic [:cxengage {:env {:cx-port "8086"
+                                              :cx-stream-port "8886"}}]
                    :echo [:cxengage {:env {;;:cx-producer-topics "raw_events"
                                            :cx-log-level "dev"}}]}
         :aliases {"ccheck" ^{:doc "Clean and check the source"}
