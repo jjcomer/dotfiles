@@ -4,7 +4,7 @@
                   [lein-environ "1.0.0"]
                   [refactor-nrepl "0.2.0"]
                   [codox "0.8.10"]
-                  [cider/cider-nrepl "0.8.2-SNAPSHOT"]
+                  [cider/cider-nrepl "0.9.0-SNAPSHOT"]
                   [lein-exec "0.3.4"]]
         :dependencies [[clj-stacktrace "0.2.8" :scope "runtime"]]
         :injections [(let [orig (ns-resolve (doto 'clojure.stacktrace require)
@@ -15,10 +15,7 @@
         :profiles {:cxengage {:env {:cx-manager-port "-1"
                                     :cx-log-level "dev"}}
                    :engine [:cxengage {:env {:cx-workers "1"
-                                             :cx-nworkers "1"
-                                             ;;:cx-topic "raw_events"
-                                             ;;:cx-log-level "prod"
-                                             }}]
+                                             :cx-nworkers "1"}}]
                    :api [:cxengage {:env {:cx-port "8082"}}]
                    :auth [:cxengage {:env {:cx-port "8081"}}]
                    :platform [:cxengage {:env {:cx-port "8088"
