@@ -1,11 +1,12 @@
 {:user {:plugins [[lein-kibit "0.0.8"]
-                  [lein-ancient "0.6.0-SNAPSHOT"]
-                  [jonase/eastwood "0.2.0"]
+                  [lein-ancient "0.6.0"]
+                  [jonase/eastwood "0.2.1"]
                   [lein-environ "1.0.0"]
-                  [refactor-nrepl "0.2.0"]
+                  [refactor-nrepl "0.2.2"]
                   [codox "0.8.10"]
                   [cider/cider-nrepl "0.9.0-SNAPSHOT"]
-                  [lein-exec "0.3.4"]]
+                  [lein-exec "0.3.4"]
+                  [test2junit "1.1.0"]]
         :dependencies [[clj-stacktrace "0.2.8" :scope "runtime"]]
         :injections [(let [orig (ns-resolve (doto 'clojure.stacktrace require)
                                             'print-cause-trace)
