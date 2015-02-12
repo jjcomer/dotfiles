@@ -32,7 +32,8 @@
 (prelude-require-packages '(solarized-theme
                             paredit
                             clj-refactor
-                            key-chord))
+                            key-chord
+                            restclient))
 
 (require 'clj-refactor)
 (require 'key-chord)
@@ -97,9 +98,6 @@
   (context 2)
   (fact 2)
   (facts 2))
-
-(fset 'make-tuple
-      "\C-c\C-mcc\C-c\C-mcc\C-ftuple \C-b\C-b\C-b\C-b\C-b\C-b\C-b")
 
 (provide 'personal)
 
