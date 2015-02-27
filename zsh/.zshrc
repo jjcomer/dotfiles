@@ -12,6 +12,7 @@ ZSH_THEME="sunaku"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 alias drf="docker rm -f \$(docker ps -aq)"
+alias dri="docker rmi \$(docker images -q --filter \"dangling=true\")"
 alias ag="ack-grep --clojure"
 alias e="emacs"
 alias ed="emacs --daemon"
