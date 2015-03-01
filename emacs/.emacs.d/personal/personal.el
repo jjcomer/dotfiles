@@ -33,6 +33,7 @@
                             paredit
                             clj-refactor
                             key-chord
+                            floobits
                             restclient))
 
 (require 'clj-refactor)
@@ -53,10 +54,13 @@
 (eval-after-load 'cider
   '(progn
      (add-hook 'cider-mode-hook 'paredit-mode)
-     (add-hook 'cider-repl-mode-hook 'rainbow-delimiters-mode)
-     (add-hook 'cider-repl-mode-hook 'subword-mode)))
+     (add-hook 'cider-repl-mode-hook 'rainbow-delimiters-mode)))
 
 (key-chord-define-global "xx" 'smex)
+(key-chord-define-global "fl" 'floobits-leave-workspace)
+(key-chord-define-global "fj" 'floobits-join-workspace)
+(key-chord-define-global "ff" 'floobits-follow-mode-toggle)
+(key-chord-define-global "fs" 'floobits-summon)
 
 `';; Adjust the annoying bell
 ;; Try just a visible bell
