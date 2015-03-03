@@ -6,7 +6,9 @@
                   [codox "0.8.10"]
                   [cider/cider-nrepl "0.9.0-SNAPSHOT"]
                   [lein-exec "0.3.4"]
-                  [test2junit "1.1.0"]]
+                  [test2junit "1.1.0"]
+                  [venantius/ultra "0.3.2"]]
+        :ultra {:color-scheme :solarized_dark}
         :dependencies [[org.clojure/tools.nrepl "0.2.7"]]
         :aliases {"ccheck" ^{:doc "Clean and check the source"}
                   ["do" ["clean"] ["check"]]

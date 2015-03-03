@@ -13,7 +13,7 @@ ZSH_THEME="sunaku"
 
 alias drf="docker rm -f \$(docker ps -aq)"
 alias dri="docker rmi \$(docker images -q --filter \"dangling=true\")"
-alias ag="ack-grep --clojure"
+alias ac="ack-grep --clojure"
 alias e="emacs"
 alias ed="emacs --daemon"
 alias ec="emacsclient -c &"
