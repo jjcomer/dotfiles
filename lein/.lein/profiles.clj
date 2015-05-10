@@ -2,7 +2,7 @@
                   [lein-ancient "0.6.6"]
                   [jonase/eastwood "0.2.1"]
                   [lein-environ "1.0.0"]
-                  [refactor-nrepl "1.0.4-SNAPSHOT"]
+                  [refactor-nrepl "1.0.5"]
                   [codox "0.8.11"]
                   [cider/cider-nrepl "0.9.0-SNAPSHOT"]
                   [lein-exec "0.3.4"]
