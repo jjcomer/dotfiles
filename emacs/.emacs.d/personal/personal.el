@@ -38,6 +38,7 @@
 (require 'clj-refactor)
 (require 'key-chord)
 (require 'paredit)
+(require 'avy-jump)
 
 (add-to-list 'auto-mode-alist '("README\\.md\\'" . gfm-mode))
 
@@ -54,6 +55,8 @@
   '(progn
      (add-hook 'cider-mode-hook 'paredit-mode)
      (add-hook 'cider-repl-mode-hook 'rainbow-delimiters-mode)))
+
+(setq avy-keys '(?a ?o ?e ?u ?i ?d ?h ?t ?n))
 
 (key-chord-define-global "xx" 'smex)
 
