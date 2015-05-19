@@ -38,7 +38,7 @@
 (require 'clj-refactor)
 (require 'key-chord)
 (require 'paredit)
-(require 'avy-jump)
+(require 'avy)
 
 (add-to-list 'auto-mode-alist '("README\\.md\\'" . gfm-mode))
 
