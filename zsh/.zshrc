@@ -85,3 +85,6 @@ export TERM=xterm-256color
 
 # ssh
 # export SSH_KEY_PATH="~/.ssh/dsa_id"
+
+fpath=(~/.zsh/completion $fpath)
+autoload -Uz compinit && compinit -i
