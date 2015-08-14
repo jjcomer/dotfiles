@@ -39,6 +39,7 @@
 (require 'key-chord)
 (require 'paredit)
 (require 'avy)
+(require 'rainbow-delimiters)
 
 (add-to-list 'auto-mode-alist '("README\\.md\\'" . gfm-mode))
 
@@ -49,6 +50,7 @@
                  (smartparens-mode -1)
                  (paredit-mode 1)
                  (clj-refactor-mode 1)
+                 (rainbow-delimiters-mode 1)
                  (cljr-add-keybindings-with-prefix "C-c C-g")) t)))
 
 (eval-after-load 'cider
