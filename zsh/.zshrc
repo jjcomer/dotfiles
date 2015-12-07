@@ -59,7 +59,7 @@ export ZSH_TMUX_AUTOCONNECT=true
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git lein docker tmux)
+plugins=(git lein docker docker-compose tmux)
 
 source $ZSH/oh-my-zsh.sh
 
