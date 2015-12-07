@@ -33,13 +33,9 @@
                             paredit
                             clj-refactor
                             key-chord
+                            avy
+                            rainbow-delimiters
                             restclient))
-
-(require 'clj-refactor)
-(require 'key-chord)
-(require 'paredit)
-(require 'avy)
-(require 'rainbow-delimiters)
 
 (add-to-list 'auto-mode-alist '("README\\.md\\'" . gfm-mode))
 
@@ -55,8 +51,13 @@
 
 (eval-after-load 'cider
   '(progn
-     (add-hook 'cider-mode-hook 'paredit-mode)
-     (add-hook 'cider-repl-mode-hook 'rainbow-delimiters-mode)))
+     (add-hook 'cider-repl-mode-hook #'paredit-mode)
+     (add-hook 'cider-mode-hook #'eldoc-mode)
+     (add-hook 'cider-repl-mode-hook #'rainbow-delimiters-mode)))
+
+(global-set-key (kbd "C-c C-s") #'cider-format-buffer)
+(setq cider-font-lock-dynamically '(macro core function var))
+(setq cider-overlays-use-font-lock t)
 
 (setq avy-keys '(?a ?o ?e ?u ?i ?d ?h ?t ?n))
 
@@ -89,18 +90,6 @@
 (setq solarized-use-more-italic t)
 
 (load-theme 'solarized-dark t)
-
-(define-clojure-indent
-  (defroutes 'defun)
-  (GET 2)
-  (POST 2)
-  (PUT 2)
-  (DELETE 2)
-  (HEAD 2)
-  (ANY 2)
-  (context 2)
-  (fact 2)
-  (facts 2))
 
 (provide 'personal)
 
