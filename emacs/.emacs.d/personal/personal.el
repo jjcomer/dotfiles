@@ -34,10 +34,10 @@
                             clj-refactor
                             key-chord
                             avy
-                            rainbow-delimiters
-                            restclient))
+                            rainbow-delimiters))
 
 (add-to-list 'auto-mode-alist '("README\\.md\\'" . gfm-mode))
+(add-to-list 'auto-mode-alist '("CHANGELOG\\.md\\'" . gfm-mode))
 
 (eval-after-load 'clojure-mode
   '(progn
@@ -52,12 +52,10 @@
 (eval-after-load 'cider
   '(progn
      (add-hook 'cider-repl-mode-hook #'paredit-mode)
-     (add-hook 'cider-mode-hook #'eldoc-mode)
-     (add-hook 'cider-repl-mode-hook #'rainbow-delimiters-mode)))
-
-(global-set-key (kbd "C-c C-s") #'cider-format-buffer)
-(setq cider-font-lock-dynamically '(macro core function var))
-(setq cider-overlays-use-font-lock t)
+     (add-hook 'cider-repl-mode-hook #'rainbow-delimiters-mode)
+     (setq cider-font-lock-dynamically '(macro core function var))
+     (setq cider-overlays-use-font-lock t)
+     (global-set-key (kbd "C-c C-s") #'cider-format-buffer)))
 
 (setq avy-keys '(?a ?o ?e ?u ?i ?d ?h ?t ?n))
 
