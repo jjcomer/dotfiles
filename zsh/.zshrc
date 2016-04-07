@@ -67,6 +67,8 @@ source $ZSH/oh-my-zsh.sh
 # User configuration
 
 export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:$HOME/bin"
+export PATH="$(brew --prefix git)/bin:$PATH"
+
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
@@ -89,3 +91,7 @@ export TERM=xterm-256color
 
 fpath=(~/.zsh/completion $fpath)
 autoload -Uz compinit && compinit -i
+
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+
+test -e "/usr/local/share/zsh/site-functions/_aws" && source "/usr/local/share/zsh/site-functions/_aws"
