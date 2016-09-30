@@ -34,7 +34,8 @@
                             clj-refactor
                             key-chord
                             avy
-                            rainbow-delimiters))
+                            rainbow-delimiters
+                            aggressive-indent))
 
 (add-to-list 'auto-mode-alist '("README\\.md\\'" . gfm-mode))
 (add-to-list 'auto-mode-alist '("CHANGELOG\\.md\\'" . gfm-mode))
@@ -47,11 +48,15 @@
                  (paredit-mode 1)
                  (clj-refactor-mode 1)
                  (rainbow-delimiters-mode 1)
-                 (cljr-add-keybindings-with-prefix "C-c C-g")) t)))
+                 (aggressive-indent-mode 1)
+                 (yas-minor-mode 1)
+                 (eldoc-mode +1)
+                 (cljr-add-keybindings-with-prefix "C-c C-l")) t)))
 
 (eval-after-load 'cider
   '(progn
      (add-hook 'cider-repl-mode-hook #'paredit-mode)
+     (add-hook 'cider-repl-mode-hook #'eldoc-mode)
      (add-hook 'cider-repl-mode-hook #'rainbow-delimiters-mode)
      (setq cider-font-lock-dynamically '(macro core function var))
      (setq cider-overlays-use-font-lock t)
@@ -88,6 +93,15 @@
 (setq solarized-use-more-italic t)
 
 (load-theme 'solarized-dark t)
+
+;;(set-default-font "Pragmata Pro Mono")
+
+;;(custom-set-faces
+;; '(default ((t (:height 150 :family "Pragmata Pro Mono")))))
+
+;;(setq cider-inject-dependencies-at-jack-in nil)
+
+;;(aggressive-indent-global-mode 1)
 
 (provide 'personal)
 
