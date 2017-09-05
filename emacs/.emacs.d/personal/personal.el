@@ -8,7 +8,7 @@
 ;;
 ;;The MIT License (MIT)
 ;;
-;;Copyright (c) 2013 Josh Comer
+;;Copyright (c) 2017 Josh Comer
 ;;
 ;;Permission is hereby granted, free of charge, to any person obtaining a copy of
 ;;this software and associated documentation files (the "Software"), to deal in
@@ -31,11 +31,14 @@
 
 (prelude-require-packages '(solarized-theme
                             paredit
+                            hcl-mode
                             clj-refactor
                             key-chord
                             avy
                             rainbow-delimiters
-                            aggressive-indent))
+                            aggressive-indent
+                            restclient
+                            company-restclient))
 
 (add-to-list 'auto-mode-alist '("README\\.md\\'" . gfm-mode))
 (add-to-list 'auto-mode-alist '("CHANGELOG\\.md\\'" . gfm-mode))
@@ -62,7 +65,14 @@
      (setq cider-overlays-use-font-lock t)
      (global-set-key (kbd "C-c C-s") #'cider-format-buffer)))
 
+(eval-after-load 'company-mode
+  '(progn
+     (add-to-list 'company-backends 'company-restclient)))
+
 (setq avy-keys '(?a ?o ?e ?u ?i ?d ?h ?t ?n))
+
+;; For windows :S
+;; (add-to-list 'exec-path "C:/Program Files (x86)/Aspell/bin/")
 
 (key-chord-define-global "xx" 'smex)
 
@@ -94,12 +104,7 @@
 
 (load-theme 'solarized-dark t)
 
-;;(set-default-font "Pragmata Pro Mono")
-
-;;(custom-set-faces
-;; '(default ((t (:height 150 :family "Pragmata Pro Mono")))))
-
-;;(setq cider-inject-dependencies-at-jack-in nil)
+(setq alchemist-key-command-prefix (kbd "C-c ,"))
 
 ;;(aggressive-indent-global-mode 1)
 
