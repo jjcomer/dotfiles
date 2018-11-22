@@ -74,8 +74,6 @@
 ;; For windows :S
 ;; (add-to-list 'exec-path "C:/Program Files (x86)/Aspell/bin/")
 
-(key-chord-define-global "xx" 'smex)
-
 ;; Try just a visible bell
 ;;(setq visible-bell 1)
 ;; If that drives you crazy turn it all off
@@ -107,6 +105,8 @@
 (setq alchemist-key-command-prefix (kbd "C-c ,"))
 
 ;;(aggressive-indent-global-mode 1)
+
+(set-frame-font "Go Mono-14" nil t)
 
 (provide 'personal)
 
