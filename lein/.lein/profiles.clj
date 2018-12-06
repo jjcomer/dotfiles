@@ -1,5 +1,5 @@
-{:user {:plugins [[lein-kibit "0.1.2"]
-                  [lein-ancient "0.6.10"]
+{:user {:plugins [[lein-kibit "0.1.6"]
+                  [lein-ancient "0.6.15"]
                   [lein-environ "1.0.3"]
                   [lein-vanity "0.2.0"]
                   [codox "0.9.5"]
@@ -18,6 +18,4 @@
                   "ttest" ^{:doc "Run tests in test profile"}
                   ["with-profile" "test" "test"]
                   "sancient" ^{:doc "Check all deps including snapshots"}
-                  ["ancient" ":allow-all"]}}
- :repl {:plugins [[cider/cider-nrepl "0.14.0-SNAPSHOT"]
-                  [refactor-nrepl "2.3.0-SNAPSHOT"]]}}
+                  ["ancient" ":allow-all"]}}}

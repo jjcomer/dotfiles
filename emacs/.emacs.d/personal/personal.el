@@ -69,6 +69,10 @@
   '(progn
      (add-to-list 'company-backends 'company-restclient)))
 
+(eval-after-load 'prelude-rust
+  '(progn
+     (setq lsp-rust-rls-command '("rustup" "run" "nightly" "rls"))))
+
 (setq avy-keys '(?a ?o ?e ?u ?i ?d ?h ?t ?n))
 
 ;; For windows :S
