@@ -8,7 +8,7 @@
 ;;
 ;;The MIT License (MIT)
 ;;
-;;Copyright (c) 2017 Josh Comer
+;;Copyright (c) 2019 Josh Comer
 ;;
 ;;Permission is hereby granted, free of charge, to any person obtaining a copy of
 ;;this software and associated documentation files (the "Software"), to deal in
@@ -68,10 +68,6 @@
 (eval-after-load 'company-mode
   '(progn
      (add-to-list 'company-backends 'company-restclient)))
-
-(eval-after-load 'prelude-rust
-  '(progn
-     (setq lsp-rust-rls-command '("rustup" "run" "nightly" "rls"))))
 
 (setq avy-keys '(?a ?o ?e ?u ?i ?d ?h ?t ?n))
 
