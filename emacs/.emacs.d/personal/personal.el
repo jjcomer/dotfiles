@@ -69,6 +69,10 @@
   '(progn
      (add-to-list 'company-backends 'company-restclient)))
 
+(eval-after-load 'rust-mode
+  '(progn
+     (add-hook 'rust-mode-hook #'rainbow-delimiters-mode)))
+
 (setq avy-keys '(?a ?o ?e ?u ?i ?d ?h ?t ?n))
 
 ;; For windows :S
