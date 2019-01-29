@@ -23,7 +23,6 @@ alias dcl="docker-compose logs -f --tail=100"
 alias dcr="docker-compose restart"
 alias dockergc="docker run --rm -v /var/run/docker.sock:/var/run/docker.sock -v /etc:/etc spotify/docker-gc"
 alias dcv="docker volume rm $(docker volume ls -qf dangling=true)"
-alias dli="eval \"$(aws ecr get-login)\""
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -101,3 +100,8 @@ autoload -Uz compinit && compinit -i
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
 test -e "/usr/local/share/zsh/site-functions/_aws" && source "/usr/local/share/zsh/site-functions/_aws"
+
+source $HOME/.cargo/env
+export PATH="/usr/local/opt/icu4c/bin:$PATH"
+export PATH="/usr/local/opt/icu4c/sbin:$PATH"
+export PATH="$PATH:/usr/local/bin/cvent-aws-cli"
