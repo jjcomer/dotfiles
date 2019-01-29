@@ -38,7 +38,8 @@
                             rainbow-delimiters
                             aggressive-indent
                             restclient
-                            company-restclient))
+                            company-restclient
+                            lsp-java))
 
 (add-to-list 'auto-mode-alist '("README\\.md\\'" . gfm-mode))
 (add-to-list 'auto-mode-alist '("CHANGELOG\\.md\\'" . gfm-mode))
@@ -55,6 +56,9 @@
                  (yas-minor-mode 1)
                  (eldoc-mode +1)
                  (cljr-add-keybindings-with-prefix "C-c C-l")) t)))
+
+(require 'lsp-java)
+(add-hook 'java-mode-hook #'lsp)
 
 (eval-after-load 'cider
   '(progn
