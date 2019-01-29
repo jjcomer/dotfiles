@@ -1,0 +1,13 @@
+[user]
+	name = Josh Comer ;CHANGE ME
+	email = jcomer@cvent.com ;CHANGE ME
+[alias]
+	clean-branches = remote update origin --prune
+	nevermind = !git reset --hard HEAD && git clean -d -f
+	new-branch = checkout -b
+	st = status
+	rsquash = rebase -i --autosquash
+[core]
+	editor = emacs
+[credential]
+  	helper = osxkeychain
