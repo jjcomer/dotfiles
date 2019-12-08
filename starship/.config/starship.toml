@@ -1,0 +1,25 @@
+[git_status]
+conflicted = '🏳'
+ahead = '🏎💨'
+behind = '😰'
+diverged = '😵'
+untracked = '🤷‍'
+stashed = '📦'
+modified = '📝'
+renamed = '👅'
+deleted = '🗑'
+
+[git_status.staged]
+value = '++'
+style = 'green'
+
+[git_status.staged_count]
+enabled = true
+style = 'green'
+
+[git_branch]
+symbol = '🌱 '
+
+[time]
+disabled = false
+format = '🕙[ %T ]'
