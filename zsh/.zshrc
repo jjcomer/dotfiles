@@ -1,6 +1,8 @@
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
 
+fpath+=~/.zfunc
+
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
@@ -23,6 +25,9 @@ alias dcl="docker-compose logs -f --tail=100"
 alias dcr="docker-compose restart"
 alias dockergc="docker run --rm -v /var/run/docker.sock:/var/run/docker.sock -v /etc:/etc spotify/docker-gc"
 alias dcv="docker volume rm $(docker volume ls -qf dangling=true)"
+alias fixgit="killall gpg-agent && gpg-agent --daemon --pinentry-program /usr/local/bin/pinentry"
+alias ls="exa"
+alias lll="exa -l -h --git"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -58,14 +63,19 @@ alias dcv="docker volume rm $(docker volume ls -qf dangling=true)"
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
 
-export ZSH_TMUX_AUTOSTART=true
-export ZSH_TMUX_AUTOSTART_ONCE=true
+#export ZSH_TMUX_AUTOSTART=true
+#export ZSH_TMUX_AUTOSTART_ONCE=true
 export ZSH_TMUX_AUTOCONNECT=true
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(brew git lein docker docker-compose tmux)
+plugins=(brew git osx tmux)
+
+
+#Spotify shortcuts
+alias sp="spotify pause"
+alias spp="spotify play"
 
 source $ZSH/oh-my-zsh.sh
 
@@ -105,3 +115,40 @@ source $HOME/.cargo/env
 export PATH="/usr/local/opt/icu4c/bin:$PATH"
 export PATH="/usr/local/opt/icu4c/sbin:$PATH"
 export PATH="$PATH:/usr/local/bin/cvent-aws-cli"
+export PATH="/usr/local/opt/ruby/bin:$PATH:/usr/local/lib/ruby/gems/2.6.0/bin:$HOME/.gem/ruby/2.6.0/bin:$HOME/.chefdk/gem/ruby/2.3.0/bin:$HOME/code/flutter/bin"
+
+export GOPATH="$HOME/go"
+export GOBIN="$GOPATH/bin"
+export PATH="$PATH:$GOBIN"
+
+export PATH="${PATH}:/usr/local/share/dotnet"
+
+export PYENV_ROOT="$HOME/.pyenv"
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
+[ -s "/usr/local/opt/nvm/etc/bash_completion" ] && . "/usr/local/opt/nvm/etc/bash_completion"  # This loads nvm bash_completion
+
+# tabtab source for serverless package
+# uninstall by removing these lines or running `tabtab uninstall serverless`
+[[ -f /Users/jcomer/code/node_modules/tabtab/.completions/serverless.zsh ]] && . /Users/jcomer/code/node_modules/tabtab/.completions/serverless.zsh
+# tabtab source for sls package
+# uninstall by removing these lines or running `tabtab uninstall sls`
+[[ -f /Users/jcomer/code/node_modules/tabtab/.completions/sls.zsh ]] && . /Users/jcomer/code/node_modules/tabtab/.completions/sls.zsh
+# tabtab source for slss package
+# uninstall by removing these lines or running `tabtab uninstall slss`
+[[ -f /Users/jcomer/code/node_modules/tabtab/.completions/slss.zsh ]] && . /Users/jcomer/code/node_modules/tabtab/.completions/slss.zsh
+
+export PKG_CONFIG_PATH="/usr/local/opt/libffi/lib/pkgconfig"
+
+eval "$(starship init zsh)"
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+source /Users/jcomer/Library/Preferences/org.dystroy.broot/launcher/bash/br
+
+. /usr/local/opt/asdf/asdf.sh
+. ~/.asdf/plugins/java/set-java-home.zsh
+
+export PATH="$HOME/.radicle/bin:$PATH"
+if [ -e /Users/jcomer/.nix-profile/etc/profile.d/nix.sh ]; then . /Users/jcomer/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer

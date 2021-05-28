@@ -13,13 +13,9 @@ deleted = '🗑'
 value = '++'
 style = 'green'
 
-[git_status.staged_count]
-enabled = true
-style = 'green'
-
 [git_branch]
 symbol = '🌱 '
 
 [time]
 disabled = false
-format = '🕙[ %T ]'
+format = '🕙[\[ $time \]]($style) '

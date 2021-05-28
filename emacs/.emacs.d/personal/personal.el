@@ -30,16 +30,18 @@
 ;;; Code:
 
 (prelude-require-packages '(solarized-theme
+                            use-package
                             paredit
-                            hcl-mode
                             clj-refactor
                             key-chord
                             avy
                             rainbow-delimiters
                             aggressive-indent
                             restclient
+                            fennel-mode
                             company-restclient
-                            lsp-java))
+                            org-roam))
+
 
 (add-to-list 'auto-mode-alist '("README\\.md\\'" . gfm-mode))
 (add-to-list 'auto-mode-alist '("CHANGELOG\\.md\\'" . gfm-mode))
@@ -53,12 +55,18 @@
                  (clj-refactor-mode 1)
                  (rainbow-delimiters-mode 1)
                  (aggressive-indent-mode 1)
-                 (yas-minor-mode 1)
-                 (eldoc-mode +1)
+                 (eldoc-mode 1)
                  (cljr-add-keybindings-with-prefix "C-c C-l")) t)))
 
-(require 'lsp-java)
-(add-hook 'java-mode-hook #'lsp)
+(eval-after-load 'fennel-mode
+  '(progn
+     (add-hook 'fennel-mode-hook
+               (lambda ()
+                 (smartparens-mode -1)
+                 (paredit-mode 1)
+                 (aggressive-indent-mode 1)
+                 (rainbow-delimiters-mode 1)
+                 (eldoc-mode 1)))))
 
 (eval-after-load 'cider
   '(progn
@@ -101,8 +109,8 @@
   '(diminish 'paredit-mode " π"))
 
 ;;Turn off guru mode
-;;(setq guru-warn-only t)
-(setq prelude-guru nil)
+(setq guru-warn-only t)
+;;(setq prelude-guru nil)
 
 (disable-theme 'zenburn)
 
@@ -110,11 +118,13 @@
 
 (load-theme 'solarized-dark t)
 
-(setq alchemist-key-command-prefix (kbd "C-c ,"))
-
 ;;(aggressive-indent-global-mode 1)
 
-(set-frame-font "Go Mono-14" nil t)
+(set-frame-font "Iosevka Slab-15" nil t)
+
+;; Setup org-roam
+(setq org-roam-directory "~/org-roam")
+(add-hook 'after-init-hook 'org-roam-mode)
 
 (provide 'personal)
 
