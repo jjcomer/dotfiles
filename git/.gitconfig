@@ -1,7 +1,6 @@
 [user]
 	name = Josh Comer ;CHANGE ME
 	email = jcomer@cvent.com ;CHANGE ME
-	signingKey = 27CCB2F77A9CF5DB
 [alias]
 	clean-branches = remote update origin --prune
 	nevermind = !git reset --hard HEAD && git clean -d -f
@@ -12,16 +11,7 @@
 	editor = emacs
 [credential]
 	helper = ""
-[commit]
-	gpgSign = false
-[gpg]
-	program = /usr/local/bin/gpg
 [init]
-	templateDir = /Users/jcomer/.git-template
 	defaultBranch = main
-[credential]
-	helper = manager-core
-[credential "https://dev.azure.com"]
-	useHttpPath = true
 [pull]
 	ff = only
