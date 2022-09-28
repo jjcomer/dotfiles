@@ -1,21 +1,23 @@
 [git_status]
-conflicted = '🏳'
-ahead = '🏎💨'
-behind = '😰'
-diverged = '😵'
-untracked = '🤷‍'
-stashed = '📦'
-modified = '📝'
-renamed = '👅'
-deleted = '🗑'
-
-[git_status.staged]
-value = '++'
-style = 'green'
+conflicted = "🏳"
+ahead = "🏎💨"
+behind = "😰"
+diverged = "😵"
+up_to_date = "✓"
+untracked = "🤷"
+stashed = "📦"
+modified = "📝"
+staged = '[++\($count\)](green)'
+renamed = "👅"
+deleted = "🗑"
 
 [git_branch]
 symbol = '🌱 '
 
 [time]
 disabled = false
-format = '🕙[\[ $time \]]($style) '
+format = '🕙 [\[ $time \]]($style) '
+
+[cmd_duration]
+min_time = 500
+format = "underwent [$duration](bold yellow)"
